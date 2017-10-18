@@ -8,6 +8,18 @@ Purpose: Quick reference to read and write files in different formats
 """
 
 import h5py
+import numpy as np
+
+######## Data (matrix) read and write into python numpy compressed format file
+mypyFileName = 'test.npz'
+
+# Read/Load
+npzfile = np.load(mypyFileName)
+X = npzfile['X']
+y = npzfile['y']
+
+# Write
+np.savez(mypyFileName, X=X, y=y)
 
 ######## Data (matrix) read and write into h5 file
 
@@ -15,8 +27,8 @@ myH5FileName = 'test.h5'
 
 # Read hdf5 file ...
 h5f = h5py.File(myFileName, 'r')
-X2 = np.asarray(h5f['X'][()])
-y2 = np.asarray(h5f['y'][()])
+X = np.asarray(h5f['X'][()])
+y = np.asarray(h5f['y'][()])
 
 # Writing/Creating HDF5 dataset ...
 with h5py.File(myFileName, 'w') as f:
