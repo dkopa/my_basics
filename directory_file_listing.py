@@ -8,9 +8,8 @@ Purpose: Access files in subdirectories ...
 """
 
 import os
-import glob
 
-mydir = '/home/hasnat/Desktop/data/'
+mydir = '/home/hasnat/caffe/'
 
 dirList = [x for x in os.listdir(mydir) if os.path.isdir(mydir+x)]
 
